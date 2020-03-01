@@ -1,0 +1,19 @@
+Refs:
+https://www.youtube.com/watch?v=GqpwiyYsNIw
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli
+Django on Azure: https://azure.microsoft.com/en-gb/resources/templates/django-app/
+
+# Log into Azure
+az login
+
+# Getting help:
+az -h
+
+# Getting context-specific help
+az vm -h
+
+# List VM's
+az vm list-ip-addresses --out table
+
+# List Azure groups:
+az group list --out table
