@@ -17,3 +17,13 @@ az vm list-ip-addresses --out table
 
 # List Azure groups:
 az group list --out table
+
+### Kubrnetes 
+
+# List Kubernetes clusters in a group
+az aks  list -g kubernetes --out table
+az aks  list --resource-group kubernetes --out table
+
+# List all clusters (regardless of group)
+az aks  list --out table
+az aks cluster list --out table
