@@ -13,7 +13,7 @@ az -h
 az vm -h
 
 # List VM's
-az vm list-ip-addresses --out table
+az vm list-ip-addresses --resource-group Advent --out table
 
 # List Azure groups:
 az group list --out table
@@ -27,3 +27,23 @@ az aks  list --resource-group kubernetes --out table
 # List all clusters (regardless of group)
 az aks  list --out table
 az aks cluster list --out table
+
+# View Kubernetes versions at the EastUS location
+az aks get-versions -o table -l eastus
+
+# Create Azure Group (Resource Group)
+az group create -l westus2 -n MyTestGroup2020 --tags test testing
+
+# Display Azure locations
+az account list-locations --query "[].{Name:name,DisplayNamee:displayName}" -o table
+
+# Display Azure locations in Canada
+az account list-locations --query "[?contains(name, 'canada')]" -o table
+
+### Create Kubernetes Cluster ###
+
+# Create an Azure group
+az group create -n TestKubernetes -l westus2
+
+# Create an cluster
+az aks create --resource-group TestKubernetes --name Test-Cluster --node-count 1 --node-vm-size Standard_F2s_v2 --enable-addons monitoring --generate-ssh-keys
